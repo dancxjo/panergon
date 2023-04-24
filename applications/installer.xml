@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../artifactml.xsd" lang="en">
+    <wizard>
+        <title>ArtifactOS Installer</title>
+
+        <mode id="choose-language">
+            <name>Your language</name>
+            <choice>
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+                <option value="it">Italiano</option>
+                <!-- Add more supported languages as necessary -->
+            </choice>
+        </mode>
+
+        <mode id="execute-archinstall">
+            <name>File Locations</name>
+            <control-panel>
+                <setting name="configLocation" value="/path/to/config/file" />
+                <setting name="credentialsLocation" value="/path/to/credentials/file" />
+            </control-panel>
+        </mode>
+
+        <mode id="choose-device">
+            <name>Device to write to</name>
+            <warning>This will erase all data on the device you choose.</warning>
+            <choice id="device-list">
+                <!-- Options will be populated dynamically by JavaScript -->
+            </choice>
+        </mode>
+
+        <mode id="confirm-write">
+            <title>Confirm write</title>
+            <choice binary="true">
+                <question id="confirm-question">Are you sure you want to delete all data on the selected device?</question>
+            </choice>
+        </mode>
+
+        <script src="app.js"></script>
+    </wizard>
+</application>
